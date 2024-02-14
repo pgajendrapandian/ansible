@@ -1,0 +1,12 @@
+- name: Assessment playbook
+  hosts: all
+  gather_facts: true
+  tasks:
+    - name: Write data in a file
+      ansible.builtin.lineinfile:
+        path: "/results/{{ username }}-2"
+        line: "{{ username }}"
+        mode: "0600"
+        create: true
+        owner: root
+        group: root
